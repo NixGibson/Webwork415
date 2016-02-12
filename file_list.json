@@ -1,0 +1,29 @@
+{
+    "pictures": [ 
+       {
+         "name": "Blue",
+         "imgPath": "bliue.jpg"
+      },
+
+      {
+         "name": "Huey P. Newton",
+         "imgPath": "huey.jpg"
+      },
+
+      {
+         "name": "Bey-Formation",
+         "imgPath": "formation.jpg"
+      },
+        
+      { 
+         "name": "Muhummad",
+         "imgPath": "ali.jpg"
+      },
+        
+      {
+         "name": "M.Obama",
+         "imgPath": "firstlady.jpg"
+      }
+
+    ]
+}
