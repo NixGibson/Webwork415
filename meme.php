@@ -50,31 +50,27 @@ Bottom:
             
 <!----- end top and bottom text------>
             
-<!--------------------javascript--------------->
+<!--------------------jquery now--------------->
 
 <script>
 
 function txtedit()
 { 
-    var for_top;
-    var for_bott;
-    var colorz;
-
-    for_top = document.getElementById('top').value;
-		document.getElementById("upper").innerHTML = for_top;
-    for_bott = document.getElementById('bottom').value;
-		document.getElementById("lower").innerHTML = for_bott;
-    colorz = document.getElementById('background-color').value;
-    document.getElementById("upper").style.color = colorz;
-    colorz = document.getElementById('background-color').value;
-		document.getElementById("lower").style.color = colorz;
+   var $forTop = $('#top').val(); 
+	    $('#upper').html = $forTop; 
+    var $forBott = $('#bottom').val();
+	    $('#lower').html = $forBott; 
+    var $colorz = $('#background-color').val();
+	    $('#upper').style.color = $colorz;
+    var $colorz = $('#background-color').val();
+	    $('#lower').style.color = $colorz;
 }
             
 </script>
 
 <div><span id='meme_addr'></span></p></div>
             
-<!-------------------end javascript------------------>
+<!-------------------end jquery------------------>
             
         
 </body>
