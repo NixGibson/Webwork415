@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="meme.css">
          
 </head>
+
+<head>
+<script src="jquery-1.12.0.min.js"></script>
+</head> 
     
     <body>
         
