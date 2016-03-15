@@ -1,69 +1,81 @@
-
 <!DOCTYPE html>
 <html>
-     <head>
-        <link rel="stylesheet" type="text/css" href="meme.css">
-    </head>
+    
+<head>
+<meta charset="utf-8">    
+<link rel="stylesheet" href="meme.css">
+         
+</head>
     
     <body>
         
+       
+<!-----------JSON pics----------------------------------->
 
-         <img src="Blue.jpg">
-      <br>
-        <select name = "img">
-        <option value="blue.jpg"> blue</option>
-        <option value = "huey.jpg"> huey</option>
-        </select>
-        
+<div id="image"><span id="show_image"></span>
+    
+    <p id="upper" style="position:absolute; top:30px; left:50px; font-size:50px; word-wrap: break-word; margin:auto;">
+</p>
+    
+<br>
+    
+<p id="lower" style="position:absolute; top:300px; left:50px;font-size:50px;  word-wrap: break-word; margin:auto">
+</p>
+    
+<form action = "memegen.php" method = "post">
 
-        <form action = memegen.php method = "get">
-            
-                <div id="selection" style="display:inline-block; width:100px">
-        
-        <br>
-              <div style="display:inline-block; width:100px">
-            
-            <input type = "text" name = "top"> 
-           <input type = "text" name = "bottom">
-            <br>
-            
-            <input type=submit>
-        
-                  
-                  <input type="color" name="color" value="#FFFFFF"></input>
-                    
-                    
-                    <!-----top and bottom text------>
-        <p id = "upper" style = "position:absolute; top: 2px; left: 50px; text-align: left; word-wrap:break-word;">
-            <p id = "upper" style = "position: absolute; top:2px; left: 50px; font-size:50px; word-wrap:break-word; color: <?php echo $_GET["color"]?>; text-align: left">
-                <?php echo $_GET["top"];?>
-            </p>
-                  
-                    
-                    
-             <br>
-            
-            <p id = "lower" style = "position:absolute; top: 350px; left: 65px; font-size:50px; word-wrap:break-word;
- text-align:left">
-            <p id = "lower" style = "position: absolute; font-size:50px; word-wrap:break-word;
-top:350px; left:65; color: <?php echo $_GET["color"]?>; text-align:left">
-                <?php echo $_GET["bottom"];?>
-            
-                
-            </p>
-          <!----- end top and bottom text------>
-            <ul>
-            
-            
-            <li><a href="?http://cs1.utm.edu/~domdgibs/memegen.php?img=blue.jpg">Blue Ivy</a></li>
-                
-         <li><a href="?http://cs1.utm.edu/~domdgibs/memegen.php?img=huey">Huey N.</a></li>
-            
-        </ul>
-        
-    </body>
+Image Selection: <span id="images"></span>
+<script src="file_list.js"></script>
+<script>show_image(0); </script>           
 
+<br>
+<!----------------------------end JSON pics---------------->
+            
+<!-----top and bottom text------->
+Top:
+</div>
+<input id="top" type="text" name ="top" value="" oninput="txtedit();">
+<br>
+Bottom:
+</div>
+<br>
+<input id="bottom" type="text" name="bottom" value="" oninput="txtedit();" >
+<br>
+<input name= "color" id="background-color" type="color"/>    
+<br> 
+  
+        <input type="submit" value = "submit" name = "submit"></input>   
+</form>
+
+            
+<!----- end top and bottom text------>
+            
+<!--------------------javascript--------------->
+
+<script>
+
+function txtedit()
+{ 
+    var for_top;
+    var for_bott;
+    var colorz;
+
+    for_top = document.getElementById('top').value;
+		document.getElementById("upper").innerHTML = for_top;
+    for_bott = document.getElementById('bottom').value;
+		document.getElementById("lower").innerHTML = for_bott;
+    colorz = document.getElementById('background-color').value;
+    document.getElementById("upper").style.color = colorz;
+    colorz = document.getElementById('background-color').value;
+		document.getElementById("lower").style.color = colorz;
+}
+            
+</script>
+
+<div><span id='meme_addr'></span></p></div>
+            
+<!-------------------end javascript------------------>
+            
+        
+</body>
 </html>
-    
-    
-    
