@@ -48,7 +48,9 @@ Bottom:
 <input name= "color" id="background-color" type="color"/>    
 <br> 
   
-        <input type="submit" value = "submit" name = "submit"></input>   
+Font Size:                    
+<input type="number" name="fontSize">
+<input type="submit">  
 </form>
 
             
