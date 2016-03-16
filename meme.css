@@ -1,0 +1,38 @@
+body {
+  background: #ffff66;
+}
+
+#display_image {
+  display: inline-block;
+}
+
+#topText {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%,-5%);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  word-wrap: break-word;
+}
+
+#bottomText {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  word-wrap: break-word;
+}
+
+#form{
+  display: inline-block;
+}
+
+img {
+  min-width: 300px;
+  height: auto;
+}
