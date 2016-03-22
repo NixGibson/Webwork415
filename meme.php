@@ -3,13 +3,11 @@
     
 <head>
 <meta charset="utf-8">    
+<script src="jquery-1.12.0.min.js"></script>
 <link rel="stylesheet" href="meme.css">
          
 </head>
 
-<head>
-<script src="jquery-1.12.0.min.js"></script>
-</head> 
     
     <body>
         
@@ -19,11 +17,13 @@
 <div id="image"><span id="show_image"></span>
     
     <p id="upper" style="position:absolute; top:30px; left:50px; font-size:50px; word-wrap: break-word; margin:auto;">
+    <? php echo $_GET["top"]; ?>
 </p>
     
 <br>
     
 <p id="lower" style="position:absolute; top:300px; left:50px;font-size:50px;  word-wrap: break-word; margin:auto">
+    <? php echo $_GET["bottom"]; ?>
 </p>
     
 <form action = "memegen.php" method = "post">
