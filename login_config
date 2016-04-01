@@ -1,0 +1,8 @@
+<?php
+// USER NAME AND PASSWORD STUFF HERE
+// DO NOT INCLUDE IN GIT... USE A .getignore
+
+$host="localhost";        // Host name 
+$username="jusmship";           // Mysql username 
+$password="wipemedown";           // Mysql password 
+?>
