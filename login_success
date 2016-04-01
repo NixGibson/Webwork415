@@ -1,0 +1,24 @@
+<?php
+require('login2.php');
+
+session_start(); // added this
+
+$loginInfo = getLoginInfo();
+if ($loginInfo == null){
+    header("location:login.php");
+}
+?>
+
+<html>
+<body>
+Login Successful
+<br><br>
+<?php
+
+	showLoginUserPopup($loginInfo);
+       
+
+
+?>
+
+
