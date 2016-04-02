@@ -21,4 +21,73 @@ Login Successful
 
 ?>
 
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <title>Meme Generator CRUD</title>
+
+  </head>
+
+  <body>
+
+
+<script type=text/javascript>
+    function onMouseOut(event) {
+        // http://stackoverflow.com/questions/4697758/prevent-onmouseout-when-hovering-child-element-of-the-parent-absolute-div-withou
+        //this is the original element the event handler was assigned to
+        var e = event.toElement || event.relatedTarget;
+        if (e.parentNode == this || e == this) {
+            return;
+        }
+        //alert('MouseOut');
+        // handle mouse event here!
+        document.getElementById('login_popup').style.display = 'none';
+    }
+
+    document.getElementById('login_popup').addEventListener('mouseout', onMouseOut, true);
+</script>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" id="title">
+          <h1>Create A Meme Here!</h1>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12" id="main_menu">
+            <div class="btn-group-vertical" role="group">
+              <button type="button" class="btn btn-default"><a href="adder.php">Add A Meme</a></button>
+              <button type="button" class="btn btn-default"><a href="viewer.php">View the Files</a></button>
+              <button type="button" class="btn btn-default"><a href="updater.php">Update Files</a></button>
+              <button type="button" class="btn btn-default"><a href="deleter.php">Remove A Pic</a></button>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p id="main_menu"><a href="index.php">Back To Main Site</a></p>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
+
+
 
