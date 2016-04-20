@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+    div.top {
+        background-color: forestgreen;
+        color: linen;
+        margin:20px;
+        margin-right: 150px;
+        min-width: 300px;
+        padding:20px;
+    }    
+</style>
+    
+<div class="top" align="center">
+    <h1><em>Welcome to the ANIMAL KINGDOM: Create your own zoo edition!</em></h1>
+</div>
+<br>
