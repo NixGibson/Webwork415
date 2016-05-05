@@ -1,0 +1,103 @@
+<?php
+include("config/connection.php");
+if(isset($_POST['actionanimal']) && $_POST['actionanimal']=='add')
+{
+	
+	$name = $_POST['name'];
+	$dob = $_POST['dob'];
+    $food_id = $_POST['food_id'];
+	$description = $_POST['description'];
+	$height= $_POST['height'];
+	$weight= $_POST['weight'];
+	$gender = $_POST['gender'];
+$query = "SELECT * FROM `animals` WHERE `name`='$name'";
+$result = mysql_query($query) or die(mysql_error());
+
+if (mysql_num_rows($result) )
+{
+    echo "<font color ='red'>This record already exist.</font>";
+}
+else
+    {
+	$sql="INSERT INTO `animals`(`food_id`, `name`, `description`, `birthday`, `gender`, `weight`, `height`) values ('$food_id','$name','$description','$dob','$gender','$weight','$height')";
+	if (mysql_query($sql))
+	{  
+		echo "<SCRIPT>window.open ('admin-dashboard.php','_self')</SCRIPT>";
+  	}
+  
+  	else
+  	{
+    	echo "<font color ='red'>Error! Enter data correctly</font>";
+    
+	}
+	}
+    
+}
+elseif(isset($_POST['actionanimal']) && $_POST['actionanimal']=='update')
+{
+	
+	unset($_POST['actionanimal']);
+	$id = $_GET['id'];
+	$name = $_POST['name'];
+	$dob = $_POST['dob'];
+    $food_id = $_POST['food_id'];
+	$description = $_POST['description'];
+	$height= $_POST['height'];
+	$weight= $_POST['weight'];
+	$gender = $_POST['gender'];
+	$qry = "DELETE FROM `animals` WHERE `id` = '$id'";
+	$run = mysql_query($qry);
+	$qry = "INSERT INTO `animals` (`food_id`,`name`,`description`,`birthday`,`gender`,`weight`,`height`) VALUES ('$food_id','$name','$description','$dob','$weight','$height')";
+	$run = mysql_query($qry);
+		$result = 1;
+  
+		echo "<font color ='green'>Record Successfully Updated </font>";
+}
+elseif(isset($_GET['actionanimal']) && $_GET['actionanimal']=='delete')
+{
+	unset($_POST['actionanimal']);
+	$id = $_GET['id'];
+	$qry = "DELETE FROM `animals` WHERE `id` = '$id'";
+	$run = mysql_query($qry);
+		$result = 1;
+		echo "<SCRIPT>window.open ('admin-dashboard.php','_self')</SCRIPT>";
+}
+
+elseif(isset($_GET['actionanimal']) && $_GET['actionanimal']=='update')
+{
+	$id = $_GET['id'];
+	$qry = "SELECT * FROM `animals` WHERE `id` = '$id'";
+	$res = mysql_query($qry) or die(mysql_error());
+	while($row = mysql_fetch_assoc($res)){
+		$data[] = $row;
+	}
+}
+else{
+	$_GET['actionanimal']= "add";
+	//$data = array(array('name'=>'','email'=>'','comments'=>''));
+}
+if (isset($_GET['actionanimal']) && $_GET['actionanimal']=='update')
+{
+ echo '<script>function disable() {document.getElementById("username").disabled = true;
+ 
+ }</script>';
+}
+
+?>
+	<div  class="signup" style="color:black;">
+	
+       <h2 style="margin-bottom:0px; color:black;"><?php echo ($_GET['actionanimal']=="update") ? 'Update' : 'Add New' ?> Animals </h2>
+      <form method="POST">
+      <input type="hidden" name="actionanimal" value="<?php echo ($_GET['actionanimal'] == "update") ? 'update' : 'add' ?>"/>
+        <input type="text" name="food_id" placeholder="Food ID" required="" value="<?php echo (isset($data[0]) ? $data[0]['food_id'] : '') ?>"><br /><br />
+        <input type="text" name="name" placeholder="Name" required="" value="<?php echo (isset($data[0]) ? $data[0]['name'] : '') ?>"> <br /><br />
+       <input type="text" name="description" placeholder="Description" required="" value="<?php echo (isset($data[0]) ? $data[0]['description'] : '') ?>"><br /><br />
+	   
+        <input type="text" name="dob" placeholder="DOB" required="" value="<?php echo (isset($data[0]) ? $data[0]['birthday'] : '') ?>"> <br /><br />
+		<input type="text" name="gender" placeholder="gender" required="" value="<?php echo (isset($data[0]) ? $data[0]['gender'] : '') ?>"><br /><br />
+		<input type="text" name="weight" placeholder="weight" required="" value="<?php echo (isset($data[0]) ? $data[0]['weight'] : '') ?>"><br /><br />
+		<input type="text" name="height" placeholder="height" required="" value="<?php echo (isset($data[0]) ? $data[0]['height'] : '') ?>"><br /><br />
+        <br /><input class="sub_btn" name="submit" id="submit"  value="<?php echo ($_GET['actionanimal']=="update") ? 'Update' : 'Submit' ?>" type="submit" />
+		 <input class="sub_btn" name="reset" id="submit"  value="Reset" type="reset" />
+      </form>
+	</div>
