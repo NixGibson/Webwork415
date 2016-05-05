@@ -1,0 +1,27 @@
+<table border="1">
+  <tr>
+    <th scope="col">ID</th>
+	 <th scope="col">Username</th>
+	  <th scope="col">Password</th>
+	  <th scope="col">Name</th>
+	
+    
+  </tr>
+<?php
+include("config/connection.php");
+	$qry = "SELECT * FROM `user` order by ID ";
+	$res = mysql_query($qry) or die(mysql_error());
+	while($row = mysql_fetch_assoc($res)){
+echo "<tr>";
+  echo "<td>&nbsp;"   . $row['id'] . "</td>";
+  echo "<td>&nbsp;"   . $row['username'] . "</td>";
+   echo "<td>&nbsp;" . $row['password'] . "</td>";
+    echo "<td>&nbsp;" . $row['name'] . "</td>";
+    
+    
+ 
+  
+  echo "</tr>";
+	}
+?>
+</table>
