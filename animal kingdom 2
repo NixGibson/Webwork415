@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="style4.css">
+</head>
+<style>
+    div.top {
+        background-color: forestgreen;
+        color: linen;
+        margin:20px;
+        margin-right: 150px;
+        min-width: 300px;
+        padding:20px;
+    } 
+    
+    div.absolute3 {
+        position: absolute;
+        top: 250px;
+        width:15%;
+        right: 0;
+        min-width: 350px;
+        height: 430px;
+        border: 3px solid #ccccb2;
+        background-repeat: no-repeat;
+        background-color: mintcream;
+        margin-right: 669px;
+        background-attachment: fixed;
+        float: left;
+    }
+</style>
+ 
+
+        <div class="absolute3" align = "center">     
+    <h3>Click here to login/register</h3>  
+
+            
+<?php
+session_start();
+include("config/connection.php");
+
+if(isset($_SESSION['user'])!="")
+{
+	header("Location: admin-dashboard.php");
+}
+
+if(isset($_POST['login-btn']))
+{
+	$username = mysql_real_escape_string($_POST['username']);
+	$pass = mysql_real_escape_string($_POST['pass']);
+	$res=mysql_query("SELECT * FROM user WHERE username='$username' and password = '$pass'");
+	$row=mysql_fetch_array($res);
+	
+	if (mysql_num_rows($res) == 1)
+	{
+		$_SESSION['user'] = $row['username'];
+		header("Location: admin-dashboard.php");
+	}
+	else
+	{
+		?>
+        <script>alert('Invlid Username Password');</script>
+        <?php
+	}
+	
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+</head>
+<body style="background-image:url(waterfall.jpg)">
+	<div id="wrapper">
+		<div id="info">
+			Weclome website 
+		</div>
+		<div id="form-wrapper">
+			<div id="form-header">
+				<h1>sign in</h1>
+			</div>
+			<div id="form-box">
+				 <form method="post">
+					<div class="input-controls">
+						<input type="text" name="username" placeholder="Username">
+						<span id="person"></span>
+						<div id="clear"></div>
+					</div>
+
+					<div class="input-controls">
+						<input type="password" name="pass" placeholder="Password">
+						<span id="key"></span>
+						<div id="clear"></div>
+					</div>
+					<div class="input-controls">
+						<button type="submit" id="login-btn" name="login-btn"> sign in </button>
+					</div>
+					<div id="form-footer">
+					Register A new user
+					<a href="register.php">Sign Up</a>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+            
+   
+</div>
+    
+<div class="top" align="center">
+    <h1><em>Welcome to the ANIMAL KINGDOM: Create your own zoo edition!</em></h1>
+    
+</div>
+<br>
+
+
+<style>
+.dropbtn {
+    background-color: linen;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: inherit;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: forestgreen}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+
+<div class="dropdown">
+  <button class="dropbtn">Wildcats</button>
+  <div class="dropdown-content">
+    <a href="#"><img src = "lion.jpeg" height = "100" width="100"> <br> LION</a>
+    <a href="#"><img src = "tigers1.jpg" height ="100" width="100"> <br> TIGER</a>
+    <a href="#"><img src = "cheetah.jpg" height = "100" width ="100"> <br> CHEETAH</a> 
+    <a href="#"><img src = "jaguar.jpg" height = "100" width ="100"> <br> JAGUAR</a>  
+    <a href="#"><img src = "bobcat.jpeg" height = "100" width ="100"> <br> BOBCAT</a>  
+    <a href="#"><img src = "panther.jpeg" height ="100" width ="100"> <br> PANTHER</a>  
+    <a href="#"><img src = "leo.jpeg" height ="100" width ="100"> <br> LEOPARD</a>  
+  </div>
+</div>
+
+</body>
+<br>
+<br>
+
+
+<style>
+.dropbtn2 {
+    background-color: linen;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown2 {
+    position: inherit;
+    display: inline-block;
+}
+
+.dropdown2-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown2-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown2-content a:hover {background-color: forestgreen}
+
+.dropdown2:hover .dropdown2-content {
+    display: block;
+}
+
+.dropdown2:hover .dropbtn2 {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+
+<div class="dropdown2">
+  <button class="dropbtn2">Bear-life</button>
+  <div class="dropdown2-content">
+    <a href="#"><img src ="grizz.jpeg" height="100" width="100"> <br> GRIZZLY BEAR</a>
+    <a href="#"><img src ="bb.jpeg" height="100" width="100"> <br> BROWN BEAR</a>
+    <a href="#"><img src ="polar.jpeg" height="100" width="100"> <br> POLAR BEAR</a>
+    <a href="#"><img src ="nabb.jpeg" height="100" width="100"> <br> N.A. BROWN BEAR</a>
+    <a href="#"><img src ="panda.jpeg" height="100" width="100"> <br> PANDA BEAR</a>
+    <a href="#"><img src ="andean.jpeg" height="100" width="100"> <br> ANDEAN BEAR</a>
+  </div>
+</div>
+
+</body>
+<br>
+<br>
+
+
+<style>
+.dropbtn3 {
+    background-color: linen;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown3 {
+    position: inherit;
+    display: inline-block;
+}
+
+.dropdown3-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown3-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown3-content a:hover {background-color: forestgreen}
+
+.dropdown3:hover .dropdown3-content {
+    display: block;
+}
+
+.dropdown3:hover .dropbtn3 {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+
+<div class="dropdown3">
+  <button class="dropbtn3">Sea-life</button>
+  <div class="dropdown3-content">
+    <a href="#"><img src ="st.jpeg" height="100" width="100"> <br>SEA TURTLE</a>
+    <a href="#"><img src ="dolph.jpeg" height="100" width="100"> <br>DOLPHIN</a>
+    <a href="#"><img src ="shark.jpeg" height="100" width="100"> <br>SHARK</a>
+    <a href="#"><img src ="whale.jpeg" height="100" width="100"> <br>WHALE</a>
+    <a href="#"><img src ="sr.jpeg" height="100" width="100"> <br>STINGRAY</a>
+    <a href="#"><img src ="oct.jpeg" height="100" width="100"> <br>OCTOPUS</a>
+    <a href="#"><img src ="eel.jpeg" height="100" width="100"> <br>EEL</a>
+    <a href="#"><img src ="seal.jpeg" height="100" width="100"> <br>SEAL</a>
+    <a href="#"><img src ="jelly.jpg" height="100" width="100"> <br>JELLYFISH</a>
+    <a href="#"><img src ="crab.jpeg" height="100" width="100"> <br>CRAB</a>
+    <a href="#"><img src ="lobster.jpeg" height="100" width="100"> <br>LOBSTER</a>
+    <a href="#"><img src ="ff.jpg" height="100" width="100"> <br>FLYING FISH</a>
+  </div>
+</div>
+
+</body>
+<br>
+<br>
+    
+
+<style>
+.dropbtn4 {
+    background-color: linen;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown4 {
+    position: inherit;
+    display: inline-block;
+}
+
+.dropdown4-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown4-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown4-content a:hover {background-color: forestgreen}
+
+.dropdown4:hover .dropdown4-content {
+    display: block;
+}
+
+.dropdown4:hover .dropbtn4 {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+
+<div class="dropdown4">
+  <button class="dropbtn4">Winged-Wonders</button>
+  <div class="dropdown4-content">
+    <a href="#">OWLS</a>
+    <a href="#">TOUCAN</a>
+    <a href="#">EAGLE</a>
+    <a href="#">DUCKS</a>
+    <a href="#">HUMMINGBIRD</a>
+    <a href="#">FLAMINGO</a>
+    <a href="#">FALCON</a>
+    <a href="#">PENGUINS</a>
+    <a href="#">SCAVENGERS</a>
+  </div>
+</div>
+
+</body>
+<br>
+<br>
+
+
+<style>
+.dropbtn5 {
+    background-color: linen;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown5 {
+    position: inherit;
+    display: inline-block;
+}
+
+.dropdown5-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown5-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown5-content a:hover {background-color: forestgreen}
+
+.dropdown5:hover .dropdown5-content {
+    display: block;
+}
+
+.dropdown5:hover .dropbtn5 {
+    background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+
+
+<div class="dropdown5">
+  <button class="dropbtn5">Primates</button>
+  <div class="dropdown5-content">
+    <a href="#">GORILLA</a>
+    <a href="#">BONOBO</a>
+    <a href="#">CHIMPANZEE</a>
+    <a href="#">GIBBON</a>
+    <a href="#">ORANGUTAN</a>
+    <a href="#">MACAQUE</a>
+    <a href="#">BABOON</a>
+    <a href="#">MONKEY(S)</a>
+  </div>
+</div>
+
+</body>
+<br>
+<br>
+
+
+<div style="width: 100%; overflow: hidden; ">
+<div style="width: 20%; min-width: 300px; float: Right; background-color:forest green;  padding:0px;">
+    <center><h3><font color = "linen"> Tarzan Trailer 2016</center></font></h3>
+    <video width="320" height="240" controls>
+    <source src="Tarzan.mp4" type="video/mp4">
+    <source src="Tarzan.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+    </video>
+</div>
+    <br>
+    <div style="width: 100%; overflow: hidden;">
+<div style="width: 20%; min-width: 300px; float: Right; background-color:forest green; padding:0px;">
+   <center> <h3><font color = "linen"> Jungle Book Trailer 2016 </center></font></h3>
+    <video width="320" height="240" controls>
+    <source src="JungleBook.mp4" type="video/mp4">
+    <source src="JungleBook.mp4" type="video/ogg">
+  Your browser does not support the video tag.
+    </video>
+</div>
+ <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2><em><font color="linen"> Created By: J.Shipp/Nix.Gibson/Dhafer.A</font></em></h2>
+
+</html>
