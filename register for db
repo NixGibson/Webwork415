@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+</head>
+<body style="background-color:white;">
+	<div id="wrapper">
+		<div id="info">
+			Register new User
+		</div>
+		<div id="form-wrapper">
+			<div id="form-header">
+				<h1>Sign Up</h1>
+			</div>
+			<div id="form-box">
+				 <form method="post" action="register.php">
+					<div class="input-controls">
+						<input type="text" name="username" placeholder="Username">
+						<span id="person"></span>
+						<div id="clear"></div>
+					</div>
+
+					<div class="input-controls">
+						<input type="password" name="pass" placeholder="Password">
+						<span id="key"></span>
+						<div id="clear"></div>
+					</div>
+					<div class="input-controls">
+						<input type="submit" id="login-btn" name="submit" value="Sign Up"> 
+					</div>
+					<div id="form-footer">
+					Existing Users
+					<a href="admin-login.php">Sign In</a>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<?php
+
+
+if(isset($_POST['submit']))
+{
+	include("config/connection.php");
+	$username = $name = $_POST['username'];;
+	$pass = $_POST['pass'];
+	$sql = "INSERT INTO `user`(`username`, `password`, `name`) VALUES ('$username','$pass','Administrator')";
+	if (mysql_query($sql))
+	{  
+		echo "<SCRIPT>alert('User Add Successfully')</SCRIPT>";
+  	}
+	else
+	{echo "<SCRIPT>alert('Error')</SCRIPT>";
+	}
+	
+}
+?>
