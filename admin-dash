@@ -1,0 +1,85 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user']))
+{
+	header("Location: admin-login.php");
+}
+
+if(isset($_GET['logout']))
+{
+	session_destroy();
+	unset($_SESSION['user']);
+	header("Location: admin-login.php");
+}
+?>
+
+
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta charset="urf-8">
+	<title>System Dashboard</title>
+
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link href="css/style2.css" type="text/css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="left-panel">
+			<h3>Admin Panel</h3>
+			<div id="search-wrapper">
+				<input type="text" placeholder="Search here..">
+				<button type="button">Go!</button>
+			</div>
+			<div id="navigation">
+				<ul>
+					<ul>
+	<li> <a href="admin-dashboard.php">Dashboard </a></li>
+	<li> <a href="admin-dashboard.php?actionanimal=Add">New Animal</a></li>
+	<li> <a href="admin-dashboard.php?view-animals=view">View Animal List</a></li>
+	<li> <a href="admin-dashboard.php?view-users=view">View Users List</a></li>
+	
+	
+					<li><a href="logout.php?logout=user logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content">
+			<div id="content-header">
+				<div id="left-info">
+					
+					
+				</div>
+				<div id="right-info">
+					<div id="user-info"><span> Welcome to <u><?php echo  $_SESSION['user'];?></u></span></div>
+
+				</div>
+			</div>
+			<div class="row">
+				<?php  if(isset($_GET['actionanimal']))
+					{ include("animals.php") ;   }
+					elseif(isset($_GET['view-users']))
+					{ include("view-users.php") ;   }
+					elseif(isset($_GET['view-animals']))
+					{ include("view-animals.php") ;   }
+					elseif(isset($_GET['view-users']))
+					{ include("view-users.php") ;   }
+					else 
+						{   
+					}
+					?>
+    
+			</div>
+			
+			
+		</div>
+	</div>
+	<div class="footer">
+		
+	
+
+	</div>
+</body>
+</html>
