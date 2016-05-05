@@ -1,0 +1,36 @@
+<table border="1">
+  <tr>
+    <th scope="col">ID</th>
+	<th scope="col">Food ID</th>
+    <th scope="col">Name</th>
+    <th  scope="col">Description</th>
+	<th scope="col">Birthday</th>
+	<th scope="col">Gender</th>
+	<th scope="col">Weight</th>
+     <th  scope="col">Height</th>
+	 <th scope="col">Update / Delete</th>
+    
+  </tr>
+<?php
+include("config/connection.php");
+	$qry = "SELECT * FROM `animals` order by ID ";
+	$res = mysql_query($qry) or die(mysql_error());
+	while($row = mysql_fetch_assoc($res)){
+echo "<tr>";
+  echo "<td>&nbsp;"   . $row['id'] . "</td>";
+  echo "<td>&nbsp;"   . $row['food_id'] . "</td>";
+   echo "<td>&nbsp;" . $row['name'] . "</td>";
+    echo "<td>&nbsp;" . $row['description'] . "</td>";
+    echo "<td>&nbsp;" . $row['birthday'] . "</td>";
+	echo "<td>&nbsp;"   . $row['gender'] . "</td>";
+	echo "<td>&nbsp;"   . $row['weight'] . "</td>";
+	echo "<td>&nbsp;"   . $row['height'] . "</td>";
+   echo "<td>&nbsp;<a href='?id=". $row['id'] . "&actionanimal=update'><font color=blue>Update</a> / ";
+     echo "&nbsp;<a href='?id=". $row['id'] . "&actionanimal=delete'>  <font color=blue>Delete</a></td>";
+    
+ 
+  
+  echo "</tr>";
+	}
+?>
+</table>
